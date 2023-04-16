@@ -11,11 +11,7 @@ let discount;
 
 // inputs
 
-distanza = prompt("Inserisci i chilometri che si intende percorrere");
-
 distanza = parseInt(distanza);
-
-eta = prompt("Inserisci l'età del passeggero");
 
 eta = parseInt(eta);
 
