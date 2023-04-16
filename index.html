@@ -25,32 +25,32 @@
 
                 <div class="container">
                     <div class="row">
-                        <div class="col">
+                        <div class="col d-flex justify-content-center">
                             <p>
                                 Nome Cognome
                             </p>
                         </div>
 
-                        <div class="col">
+                        <div class="col d-flex justify-content-center">
                             Km da percorrere
                         </div>
 
-                        <div class="col">
+                        <div class="col d-flex justify-content-center">
                             Fascia d'età
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col d-flex justify-content-center">
                             <input type="text">
                         </div>
 
-                        <div class="col">
-                            <input type="text">
+                        <div class="col d-flex justify-content-center">
+                            <input type="number" id="distance">
                         </div>
 
-                        <div class="col">
-                            <select name="" id="">
+                        <div class="col d-flex justify-content-center">
+                            <select name="age_selector" id="age_sel">
                                 <option value="">-- Scegli l'età --</option>
 
                                 <option value="minorenne">Minorenne</option>
@@ -60,8 +60,18 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row justify-content-center">
+                        <div class="col-2 d-flex justify-content-center">
+                            <button onclick="load()">
+                                Genera
+                            </button>
+                        </div>
 
+                        <div class="col-2 d-flex justify-content-center">
+                            <button>
+                                Annulla
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

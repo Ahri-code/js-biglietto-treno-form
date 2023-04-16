@@ -9,46 +9,38 @@ let eta;
 let price;
 let discount;
 
-// inputs
+// functions
 
-distanza = parseInt(distanza);
+function load () {
+    distanza = document.getElementById("distance").value;
 
-eta = parseInt(eta);
+    distanza = parseInt(distanza);
 
-// checks
+    eta = document.getElementById("age_sel").value;
 
-if (isNaN(distanza) && isNaN(eta)) {
-    document.getElementById("title").innerText = `Errore, per favore ricarica la pagina e inserisci un numero come risposta alle domande`;
+    if (isNaN(distanza)) {
+
+    }
+
+    console.log(distanza);
+    console.log(eta);
 }
-else if (isNaN(distanza)) {
-    document.getElementById("title").innerText = `Errore, per favore ricarica la pagina e inserisci un numero alla domanda sulla distanza`;
-}
-else if (isNaN(eta)) {
-    document.getElementById("title").innerText = `Errore, per favore ricarica la pagina e inserisci un numero alla domanda sull'età`;
-}
-else {
-    price = stPrice * distanza;
+// else {
 
-    if (eta < 17) {
-        discount = price * 20 / 100;
-        price = price - discount;
-    }
-    else if (eta > 64) {
-        discount = price * 40 / 100;
-        price = price - discount;
-    }
+    // price = stPrice * distanza;
 
-    if (!Number.isInteger(price)) {
-        price = price.toFixed(2);
-        price = parseFloat(price);
-    }
+    // if (eta < 17) {
+    //     discount = price * 20 / 100;
+    //     price = price - discount;
+    // }
+    // else if (eta > 64) {
+    //     discount = price * 40 / 100;
+    //     price = price - discount;
+    // }
 
-    document.getElementById("title").innerText = `Il prezzo del biglietto è: ${price}€`;
-    if (eta < 17) {
-        document.getElementById("disc").innerText = `È stato applicato uno sconto del 20%`;
-    }
-    else if (eta > 64) {
-        document.getElementById("disc").innerText = `È stato applicato uno sconto del 40%`;
-    }
+    // if (!Number.isInteger(price)) {
+    //     price = price.toFixed(2);
+    //     price = parseFloat(price);
+    // }
 
-}
+// }
