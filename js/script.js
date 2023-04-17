@@ -9,6 +9,8 @@ let distanza;
 let eta;
 let price;
 let discount;
+let random;
+let x = 1;
 
 // --- FUNCTIONS ---
 
@@ -41,21 +43,45 @@ function load () {
         if (eta === "minorenne") {
             discount = price * 20 / 100;
             price = price - discount;
+            x = 0;
         }
         else if (eta === "over-65") {
             discount = price * 40 / 100;
             price = price - discount;
+            x = 2
         }
 
         if (!Number.isInteger(price)) {
             price = price.toFixed(2);
             price = parseFloat(price);
         }
-    }
 
+        // --- Wrting ---
+        document.getElementById("d_show").innerText = `${people}`;
+
+        if (x == 0) {
+            document.getElementById("ticket").innerText = `Ridotto Under 18`;
+        }
+        else if (x == 1) {
+            document.getElementById("ticket").innerText = `Standard`;
+        }
+        else if (x == 2) {
+            document.getElementById("ticket").innerText = `Ridotto Over 65`;
+        }
+
+        random = Math.floor(Math.random() * 10 + 1);
+        document.getElementById("carriage").innerText = `${random}`;
+
+        random = Math.floor(Math.random() * 10000 + 1);
+        document.getElementById("codeCP").innerText = `${random}`;
+
+        document.getElementById("price").innerText = `${price}€`;
+    }
+    
+    console.log (random);
     console.log(distanza);
     console.log(eta);
-    console.log(price)
+    console.log(price);
 }
 
 // Undo function
