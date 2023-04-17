@@ -1,46 +1,70 @@
-// Costanti
+// --- CONSTANTS ---
 
 const stPrice = 0.21;
 
-// Variabili
+// --- VARIABLES ---
 
+let people;
 let distanza;
 let eta;
 let price;
 let discount;
 
-// functions
+// --- FUNCTIONS ---
+
+// Load function
 
 function load () {
+    people = document.getElementById("name").value;
+
     distanza = document.getElementById("distance").value;
 
     distanza = parseInt(distanza);
 
     eta = document.getElementById("age_sel").value;
 
-    if (isNaN(distanza)) {
+    if ((isNaN(distanza) && eta === "" && people ==="") || (eta === "" && people ==="") || (isNaN(distanza) && eta === "") || (isNaN(distanza) && people ==="")) {
+        alert("Non sono stati inseriti tutti i dati");
+    }
+    else if (people === "") {
+        alert("Non è stato inserito un nome");
+    }
+    else if (isNaN(distanza)) {
+        alert("Non è stata inserita la distanza");
+    }
+    else if (eta === "") {
+        alert("Non è stata inserita una fascia d'età");
+    }
+    else {
+        price = stPrice * distanza;
 
+        if (eta === "minorenne") {
+            discount = price * 20 / 100;
+            price = price - discount;
+        }
+        else if (eta === "over-65") {
+            discount = price * 40 / 100;
+            price = price - discount;
+        }
+
+        if (!Number.isInteger(price)) {
+            price = price.toFixed(2);
+            price = parseFloat(price);
+        }
     }
 
     console.log(distanza);
     console.log(eta);
+    console.log(price)
 }
-// else {
 
-    // price = stPrice * distanza;
+// Undo function
 
-    // if (eta < 17) {
-    //     discount = price * 20 / 100;
-    //     price = price - discount;
-    // }
-    // else if (eta > 64) {
-    //     discount = price * 40 / 100;
-    //     price = price - discount;
-    // }
-
-    // if (!Number.isInteger(price)) {
-    //     price = price.toFixed(2);
-    //     price = parseFloat(price);
-    // }
-
-// }
+function undo() {
+    people = document.getElementById("name");
+    distanza = document.getElementById("distance");
+    eta = document.getElementById("age_sel");
+    people.value = '';
+    distanza.value = '';
+    eta.value = '';
+}
